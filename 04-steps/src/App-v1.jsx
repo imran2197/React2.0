@@ -1,14 +1,11 @@
 import React from "react";
 import { useState } from "react";
-import Button from "./components/Button";
 
 const messages = [
   "Learn React ⚛️",
   "Apply for jobs 💼",
   "Invest your new income 🤑",
 ];
-
-const style = { backgroundColor: "#7950f2", color: "#fff" };
 
 const App = () => {
   const [step, setStep] = useState(1);
@@ -29,20 +26,20 @@ const App = () => {
             Step {step}: {messages[step - 1]}
           </p>
           <div className="buttons">
-            <Button
-              style={style}
-              onClickHandler={() => setStep(step - 1)}
-              isDisabled={step == 1}
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              onClick={() => setStep(step - 1)}
+              disabled={step == 1}
             >
-              <span>👈Previous</span>
-            </Button>
-            <Button
-              style={style}
-              onClickHandler={() => setStep(step + 1)}
-              isDisabled={step == 3}
+              Previous
+            </button>
+            <button
+              style={{ backgroundColor: "#7950f2", color: "#fff" }}
+              onClick={() => setStep(step + 1)}
+              disabled={step == 3}
             >
-              <span>Next👉</span>
-            </Button>
+              Next
+            </button>
           </div>
         </div>
       )}
