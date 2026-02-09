@@ -10,15 +10,17 @@ import Search from "./components/Search";
 import { useEffect } from "react";
 import Loader from "./components/Loader";
 import ErrorMessage from "./components/ErrorMessage";
+import MovieDetails from "./components/MovieDetails";
 
 const KEY = "338f2c65";
 
 export default function App() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("Inception");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [selectedId, setSelectedId] = useState(null);
 
   // useEffect(() => {
   //   console.log("After Initial Render");
@@ -34,6 +36,13 @@ export default function App() {
 
   // console.log("During Render");
 
+  const handleSelectedMovie = (id) => {
+    setSelectedId((selectedId) => (selectedId == id ? null : id));
+  };
+
+  const handleCloseMovie = () => {
+    setSelectedId(null);
+  };
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -80,13 +89,24 @@ export default function App() {
             <p className="movieNotFound">Please search the movie</p>
           )}
           {isLoading && <Loader />}
-          {!isLoading && !error && <MovieList movies={movies} />}
+          {!isLoading && !error && (
+            <MovieList movies={movies} onSelectMovie={handleSelectedMovie} />
+          )}
           {error && <ErrorMessage message={error} />}
         </Box>
 
         <Box>
-          <WatchedSummary watched={watched} />
-          <WatchedMoviesList watched={watched} />
+          {selectedId ? (
+            <MovieDetails
+              selectedId={selectedId}
+              onCloseMovie={handleCloseMovie}
+            />
+          ) : (
+            <>
+              <WatchedSummary watched={watched} />
+              <WatchedMoviesList watched={watched} />
+            </>
+          )}
         </Box>
       </Main>
     </>
