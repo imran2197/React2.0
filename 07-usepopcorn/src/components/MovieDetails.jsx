@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import StarRating from "./StarRating";
 import Loader from "./Loader";
+import { useKey } from "../hooks/useKey";
 
 const KEY = "338f2c65";
 
@@ -67,18 +68,7 @@ const MovieDetails = ({ selectedId, onCloseMovie, onAddWatched, watched }) => {
     };
   }, [title]);
 
-  useEffect(() => {
-    const escapeKeydownListener = (e) => {
-      if (e.key == "Escape") {
-        onCloseMovie();
-      }
-    };
-    document.addEventListener("keydown", escapeKeydownListener);
-
-    return () => {
-      document.removeEventListener("keydown", escapeKeydownListener);
-    };
-  }, [onCloseMovie]);
+  useKey("Escape", onCloseMovie);
 
   useEffect(() => {
     if (userRating) countRef.current = countRef.current + 1;
