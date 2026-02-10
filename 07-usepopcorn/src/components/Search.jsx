@@ -18,7 +18,7 @@ const Search = ({ query, setQuery }) => {
     return () => {
       document.removeEventListener("keydown", eventListenerForEnter);
     };
-  }, []);
+  }, [setQuery]);
   return (
     <div>
       <input
