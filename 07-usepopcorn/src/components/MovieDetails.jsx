@@ -55,6 +55,16 @@ const MovieDetails = ({ selectedId, onCloseMovie, onAddWatched, watched }) => {
     fetchMovieDetails();
   }, [selectedId]);
 
+  useEffect(() => {
+    if (!title) return;
+    document.title = `Movie | ${title}`;
+
+    return () => {
+      document.title = "usePopcorn";
+      console.log(`Clean up for movie ${title}`);
+    };
+  }, [title]);
+
   return (
     <div className="details">
       {isLoading ? (
