@@ -15,7 +15,7 @@ import MovieDetails from "./components/MovieDetails";
 const KEY = "338f2c65";
 
 export default function App() {
-  const [query, setQuery] = useState("Inception");
+  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -76,7 +76,6 @@ export default function App() {
         setMovies(data.Search);
         setError("");
       } catch (err) {
-        console.log(err);
         if (err.name !== "AbortError") {
           setError(err.message);
         }
@@ -90,7 +89,7 @@ export default function App() {
       setError("");
       return;
     }
-
+    handleCloseMovie();
     fetchData();
 
     return () => {

@@ -48,7 +48,6 @@ const MovieDetails = ({ selectedId, onCloseMovie, onAddWatched, watched }) => {
         `https://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`,
       );
       const data = await response.json();
-      console.log(data);
       setMovie(data);
       setIsLoading(false);
     };
@@ -64,6 +63,19 @@ const MovieDetails = ({ selectedId, onCloseMovie, onAddWatched, watched }) => {
       console.log(`Clean up for movie ${title}`);
     };
   }, [title]);
+
+  useEffect(() => {
+    const escapeKeydownListener = (e) => {
+      if (e.key == "Escape") {
+        onCloseMovie();
+      }
+    };
+    document.addEventListener("keydown", escapeKeydownListener);
+
+    return () => {
+      document.removeEventListener("keydown", escapeKeydownListener);
+    };
+  }, [onCloseMovie]);
 
   return (
     <div className="details">

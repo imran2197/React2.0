@@ -44,7 +44,6 @@ const App = () => {
   };
 
   const handleSplitBill = (value) => {
-    console.log(value);
     setFriends((friends) =>
       friends.map((friend) =>
         friend.id == selectedFriend.id
