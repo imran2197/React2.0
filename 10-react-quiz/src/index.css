@@ -8,8 +8,9 @@
 
   --color-theme: #1098ad;
   --color-accent: #ffa94d;
+  --color-green: #2f9e44;
+  --color-red: #e03131;
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -121,8 +122,10 @@ progress {
   font-family: inherit;
   color: inherit;
   font-size: 2rem;
-  border: 2px solid var(--color-dark);
-  background-color: var(--color-dark);
+  border: 2px solid var(--color-light);
+  background-color: var(--color-light);
+  color: var(--color-darkest);
+  font-weight: bold;
   padding: 1.2rem 2.4rem;
   cursor: pointer;
   border-radius: 100px;
@@ -130,11 +133,13 @@ progress {
 }
 
 .btn:not([disabled]):hover {
-  background-color: var(--color-darkest);
+  background: var(--color-theme);
+  color: var(--color-light);
 }
 
 .btn-option:not([disabled]):hover {
   transform: translateX(1.2rem);
+  border-color: var(--color-theme);
 }
 
 .btn[disabled]:hover {
@@ -158,14 +163,14 @@ progress {
 }
 
 .btn-option.correct {
-  background-color: var(--color-theme);
-  border: 2px solid var(--color-theme);
+  background-color: var(--color-green);
+  border: 2px solid var(--color-green);
   color: var(--color-light);
 }
 .btn-option.wrong {
-  background-color: var(--color-accent);
-  border: 2px solid var(--color-accent);
-  color: var(--color-darkest);
+  background-color: var(--color-red);
+  border: 2px solid var(--color-red);
+  color: var(--color-light);
 }
 
 .answer {
