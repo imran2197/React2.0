@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import styles from "./CityItem.module.css";
 import { convertToFlagUrl } from "../utils/ConverToFlagUrl";
 import { Link } from "react-router-dom";
@@ -12,10 +13,13 @@ const formatDate = (date) =>
 
 const CityItem = ({ city }) => {
   console.log(city);
-  const { cityName, emoji, date, id } = city;
+  const { cityName, emoji, date, id, position } = city;
   return (
     <li>
-      <Link className={styles.cityItem} to={`${id}`}>
+      <Link
+        className={styles.cityItem}
+        to={`${id}?lat=${position.lat}&&lng=${position.lng}`}
+      >
         <span className={styles.emoji}>
           <img
             src={convertToFlagUrl(emoji)}
