@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { convertToFlagUrl } from "../utils/ConverToFlagUrl";
 import styles from "./CountryItem.module.css";
 
