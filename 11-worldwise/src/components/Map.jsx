@@ -14,20 +14,18 @@ import { useCities } from "../contexts/CitiesContext";
 import { convertToFlagUrl } from "../utils/ConverToFlagUrl";
 import { useGeolocation } from "../hooks/useGeolocation";
 import Button from "../components/Button";
+import { useUrlPosition } from "../hooks/useUrlPosition";
 
 const Map = () => {
   const { cities, currentCity } = useCities();
   console.log(currentCity);
   const [mapPosition, setMapPosition] = useState([40, 0]);
-  const [searchParams, setSearchParams] = useSearchParams();
   const {
     isLoading: isLoadingPosition,
     position: geolocationPosition,
     getPosition,
   } = useGeolocation();
-
-  const mapLat = searchParams.get("lat");
-  const mapLng = searchParams.get("lng");
+  const [mapLat, mapLng] = useUrlPosition();
 
   useEffect(() => {
     if (mapLat && mapLng) {
