@@ -5,6 +5,7 @@ import { useCities } from "../contexts/CitiesContext";
 import { useEffect } from "react";
 import Spinner from "./Spinner";
 import BackButton from "./BackButton";
+import { convertToFlagUrl } from "../utils/ConverToFlagUrl";
 
 const formatDate = (date) =>
   new Intl.DateTimeFormat("en", {
@@ -31,7 +32,8 @@ function City() {
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{emoji}</span> {cityName}
+          <span>{emoji && <img src={convertToFlagUrl(emoji)} />}</span>
+          {cityName}
         </h3>
       </div>
 
