@@ -35,6 +35,78 @@
         "lng": 13.376933665713324
       },
       "id": 98443197
+    },
+    {
+      "cityName": "Ecija",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2026-02-17T08:58:06.095Z",
+      "notes": "Test",
+      "position": {
+        "lat": "37.54457732085584",
+        "lng": "-5.163574218750001"
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Foggaret Ezzaou",
+      "country": "Algeria",
+      "emoji": "🇩🇿",
+      "date": "2026-02-17T09:02:37.214Z",
+      "notes": "Imran",
+      "position": {
+        "lat": "27.449790329784214",
+        "lng": "3.3398437500000004"
+      },
+      "id": 98443199
+    },
+    {
+      "cityName": "Bilma",
+      "country": "Niger (the)",
+      "emoji": "🇳🇪",
+      "date": "2026-02-17T09:04:02.002Z",
+      "notes": "dsafdsaf",
+      "position": {
+        "lat": "21.12549763660629",
+        "lng": "13.0078125"
+      },
+      "id": 98443200
+    },
+    {
+      "cityName": "Mao",
+      "country": "Chad",
+      "emoji": "🇹🇩",
+      "date": "2026-02-17T09:07:06.826Z",
+      "notes": "",
+      "position": {
+        "lat": "14.00869637063467",
+        "lng": "15.029296875000002"
+      },
+      "id": 98443201
+    },
+    {
+      "cityName": "Mao",
+      "country": "Chad",
+      "emoji": "🇹🇩",
+      "date": "2026-02-17T09:08:13.092Z",
+      "notes": "",
+      "position": {
+        "lat": "14.00869637063467",
+        "lng": "15.029296875000002"
+      },
+      "id": 98443202
+    },
+    {
+      "cityName": "Banalia",
+      "country": "Congo (the Democratic Republic of the)",
+      "emoji": "🇨🇩",
+      "date": "2026-02-17T09:09:24.468Z",
+      "notes": "",
+      "position": {
+        "lat": "1.4939713066293239",
+        "lng": "24.78515625"
+      },
+      "id": 98443203
     }
   ]
 }

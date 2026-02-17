@@ -40,5 +40,32 @@
 
 :global(.react-datepicker) {
   font-family: inherit;
-  font-size: 1.2rem;
+  font-size: 1.6rem !important;
+  transform: scale(1.2);
+  transform-origin: top left;
+}
+
+:global(.react-datepicker__day),
+:global(.react-datepicker__day-name) {
+  width: 3rem !important;
+  line-height: 3rem !important;
+  margin: 0.4rem !important;
+  font-size: 1.4rem !important;
+}
+
+:global(.react-datepicker__current-month) {
+  font-size: 1.6rem !important;
+}
+
+:global(.react-datepicker__navigation-icon::before) {
+  font-size: 20px !important;
+}
+
+:global(.react-datepicker-popper) {
+  width: fit-content !important;
+}
+
+/* Important when scaling */
+:global(.react-datepicker__month-container) {
+  float: none !important;
 }
