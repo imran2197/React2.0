@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { PostProvider, usePosts } from "./PostContext";
 import { createRandomPost } from "./createRandomPost";
 import Test from "./Test";
@@ -34,7 +34,7 @@ function App() {
   );
 }
 
-function Header() {
+const Header = memo(function Header() {
   // 3) CONSUMING CONTEXT VALUE
   const { onClearPosts } = usePosts();
 
@@ -50,7 +50,7 @@ function Header() {
       </div>
     </header>
   );
-}
+});
 
 function SearchPosts() {
   const { searchQuery, setSearchQuery } = usePosts();
@@ -70,14 +70,14 @@ function Results() {
   return <p>🚀 {posts.length} atomic posts found</p>;
 }
 
-function Main() {
+const Main = memo(function Main() {
   return (
     <main>
       <FormAddPost />
       <Posts />
     </main>
   );
-}
+});
 
 function Posts() {
   return (
@@ -130,12 +130,12 @@ function List() {
           </li>
         ))}
       </ul>
-      <Test />
+      {/* <Test /> */}
     </>
   );
 }
 
-function Archive() {
+const Archive = memo(function Archive() {
   const { onAddPost } = usePosts();
 
   // Here we don't need the setter function. We're only using state to store these posts because the callback function passed into useState (which generates the posts) is only called once, on the initial render. So we use this trick as an optimization technique, because if we just used a regular variable, these posts would be re-created on every render. We could also move the posts outside the components, but I wanted to show you this trick 😉
@@ -167,10 +167,10 @@ function Archive() {
       )}
     </aside>
   );
-}
+});
 
-function Footer() {
+const Footer = memo(function Footer() {
   return <footer>&copy; by The Atomic Blog ✌️</footer>;
-}
+});
 
 export default App;
