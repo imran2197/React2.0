@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
 import { useCities } from "../contexts/CitiesContext";
@@ -21,7 +20,7 @@ function City() {
 
   useEffect(() => {
     getCity(id);
-  }, [id]);
+  }, [id, getCity]);
 
   const { cityName, emoji, date, notes } = currentCity;
 
