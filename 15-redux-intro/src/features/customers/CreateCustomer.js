@@ -10,7 +10,7 @@ function Customer() {
 
   function handleClick() {
     if (fullName && nationalId) {
-      dispatch(createCustomer(fullName, nationalId));
+      dispatch(createCustomer({ fullName, nationalID: nationalId, createdAt: new Date().toISOString() }));
     }
   }
 
